@@ -1,0 +1,15 @@
+
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+configurations {
+    provided
+}
+
+idea {
+    module {
+        scopes.PROVIDED.plus += [configurations.provided]
+        //testSourceDirs += file('src/integration/groovy')
+        //testSourceDirs += file('src/functional/groovy')
+    }
+}
