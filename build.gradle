@@ -1,0 +1,36 @@
+group 'com.openlane'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath group: 'org.springframework.boot',  name: 'spring-boot-gradle-plugin',      version: spring_boot_version
+    }
+
+}
+
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.2'
+  distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
+apply plugin: 'java'
+//apply from: 'gradle/conf/boot.gradle'
+apply from: 'gradle/conf/groovy.gradle'
+
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
