@@ -1,6 +1,3 @@
-group 'com.openlane'
-version '1.0-SNAPSHOT'
-
 buildscript {
     repositories {
         mavenLocal()
@@ -12,6 +9,14 @@ buildscript {
 
 }
 
+plugins {
+    id "io.spring.dependency-management" version "0.6.0.RELEASE"
+}
+
+
+group 'com.openlane'
+version '1.0-SNAPSHOT'
+
 
 task wrapper(type: Wrapper) {
   gradleVersion = '3.2'
@@ -19,8 +24,13 @@ task wrapper(type: Wrapper) {
 }
 
 apply plugin: 'java'
+apply from: 'gradle/conf/lombok.gradle'
+apply from: 'gradle/conf/boot.gradle'
 apply from: 'gradle/conf/groovy.gradle'
 apply from: 'gradle/conf/ide.gradle'
+
+apply from: 'gradle/conf/test/unit.gradle'
+
 
 
 sourceCompatibility = 1.8
@@ -30,7 +40,3 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-}

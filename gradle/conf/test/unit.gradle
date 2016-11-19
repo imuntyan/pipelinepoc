@@ -1,0 +1,10 @@
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: junit_version
+    testCompile group: 'org.spockframework', 		name: 'spock-core', 	version: spock_version
+    testCompile group: 'org.hamcrest', 				name: 'hamcrest-core', 	version: hamcrest_version
+    testCompile group: 'cglib', 					name: 'cglib-nodep', 	version: cglib_version
+    testCompile group: 'org.objenesis', 			name: 'objenesis', 		version: objenesis_version
+
+
+    testCompile group: 'org.springframework.boot',  name: 'spring-boot-starter-test'
+}
