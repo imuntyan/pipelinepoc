@@ -11,6 +11,7 @@ node {
     stage 'BuildRunDocker'
     //sh 'docker kill <%= baseName %>'
     //sh 'docker rm <%= baseName %>'
+    sh 'uname -a'
     sh 'docker build -t imuntyan/pipelinepoc .'
     sh 'docker run -d --name pipelinepoc -p 8080:8080 imuntyan/pipelinepoc'
 }
