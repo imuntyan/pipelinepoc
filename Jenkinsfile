@@ -14,6 +14,6 @@ node {
     //sh 'docker build -t imuntyan/pipelinepoc .'
     //sh 'docker run -d --name pipelinepoc -p 8080:8080 imuntyan/pipelinepoc'
 
-    docker.build("imuntyan/pipelinepoc").run({"-d --name pipelinepoc -p 8080:8080"})
+    docker.build("imuntyan/pipelinepocx").run({"-d --name pipelinepoc -p 8080:8080"})
 
 }
