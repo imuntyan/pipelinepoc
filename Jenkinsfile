@@ -11,8 +11,9 @@ node {
     stage 'BuildRunDocker'
     //sh 'docker kill <%= baseName %>'
     //sh 'docker rm <%= baseName %>'
-    sh 'uname -a'
-    sh 'apt-get install docker'
-    sh 'docker build -t imuntyan/pipelinepoc .'
-    sh 'docker run -d --name pipelinepoc -p 8080:8080 imuntyan/pipelinepoc'
+    //sh 'docker build -t imuntyan/pipelinepoc .'
+    //sh 'docker run -d --name pipelinepoc -p 8080:8080 imuntyan/pipelinepoc'
+
+    docker.build("imuntyan/pipelinepoc").run({"-d --name pipelinepoc -p 8080:8080"})
+
 }
