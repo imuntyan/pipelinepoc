@@ -5,7 +5,7 @@ import scala.concurrent.duration._
 
 class SimpleSimulation extends Simulation {
 
-  val url = sys.env("$status_url")
+  val url = sys.env("status_url")
 
   print( url )
 
