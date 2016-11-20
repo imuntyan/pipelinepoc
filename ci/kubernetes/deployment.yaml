@@ -1,0 +1,18 @@
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pipelinepoc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pipelinepoc
+    spec:
+      containers:
+      - name: pipelinepoc
+        image: imuntyan/pipelinepoc
+        ports:
+        - containerPort: 8080

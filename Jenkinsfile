@@ -20,6 +20,10 @@ node {
 
     app.push()
 
-    //docker.build("imuntyan/pipelinepoc").run({"-d --name pipelinepoc -p 8080:8080"})
+
+    sh 'ci/kubernetes/kubectl-1.4.4 --namespace="dev" apply -f ci/kubernetes/dev/ingress.yaml'
+    sh 'ci/kubernetes/kubectl-1.4.4 --namespace="dev" apply -f ci/kubernetes/service.yaml'
+    sh 'ci/kubernetes/kubectl-1.4.4 --namespace="dev" apply -f ci/kubernetes/deployment.yaml'
+
 
 }

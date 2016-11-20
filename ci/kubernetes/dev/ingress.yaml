@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - pipelinepoc.dev.k8.openlane.net
+    secretName: tls
+  rules:
+    -
+      host: pipelinepoc.dev.k8.openlane.net
+      http:
+        paths:
+          -
+            backend:
+              serviceName: pipelinepoc
+              servicePort: 8080
