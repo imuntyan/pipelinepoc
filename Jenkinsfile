@@ -12,7 +12,7 @@ node {
     //sh 'docker kill <%= baseName %>'
     //sh 'docker rm <%= baseName %>'
     sh 'docker build -t imuntyan/pipelinepoc .'
-    sh 'docker run -d --name pipelinepoc -p 8080:8080 imuntyan/pipelinepoc'
+    sh 'docker run -d --name pipelinepoc -p 8180:8180 imuntyan/pipelinepoc'
 
     //docker.build("imuntyan/pipelinepoc").run({"-d --name pipelinepoc -p 8080:8080"})
 
