@@ -19,6 +19,9 @@ node {
     stage 'DeployInDev'
 
     app.push()
+    sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" delete -f ci/kubernetes/dev/ingress.yaml'
+    sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" delete -f ci/kubernetes/service.yaml'
+    sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" delete -f ci/kubernetes/deployment.yaml'
     sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" apply -f ci/kubernetes/dev/ingress.yaml'
     sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" apply -f ci/kubernetes/service.yaml'
     sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" apply -f ci/kubernetes/deployment.yaml'
