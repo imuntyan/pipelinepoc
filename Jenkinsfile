@@ -11,8 +11,14 @@ node {
     stage 'BuildRunDocker'
     //sh 'docker kill pipelinepoc'
     //sh 'docker rm pipelinepoc'
-    sh 'docker build -t imuntyan/pipelinepoc .'
+    //sh 'docker build -t imuntyan/pipelinepoc .'
     //sh 'docker run -d --name pipelinepoc -p 8180:8180 imuntyan/pipelinepoc'
+
+    def app = docker.build "imuntyan/pipelinepoc"
+
+    stage 'DeployInDev'
+
+    app.push()
 
     //docker.build("imuntyan/pipelinepoc").run({"-d --name pipelinepoc -p 8080:8080"})
 
