@@ -7,6 +7,8 @@ class SimpleSimulation extends Simulation {
 
   val url = sys.env("$status_url")
 
+  print( url )
+
   val httpConf = http // 4
     .baseURL(url) // 5
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8") // 6
