@@ -28,4 +28,7 @@ node {
 
     sh 'ci/scripts/check_depl.sh http://pipelinepoc.dev.k8.openlane.net/status'
 
+    stage 'LoadTesting'
+
+    sh "./gradlew gatlingRun"
 }

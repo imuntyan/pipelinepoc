@@ -2,9 +2,13 @@ buildscript {
     repositories {
         mavenLocal()
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath group: 'org.springframework.boot',  name: 'spring-boot-gradle-plugin',      version: spring_boot_version
+        classpath "gradle.plugin.com.github.lkishalmi.gradle:gradle-gatling-plugin:0.4.1"
     }
 
 }
@@ -37,6 +41,7 @@ apply from: 'gradle/conf/ide.gradle'
 apply from: 'gradle/conf/meta.gradle'
 
 apply from: 'gradle/conf/test/unit.gradle'
+apply from: 'gradle/conf/test/load.gradle'
 
 
 
