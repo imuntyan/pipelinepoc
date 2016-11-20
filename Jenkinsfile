@@ -30,5 +30,7 @@ node {
 
     stage 'LoadTesting'
 
+    sh 'status_url=http://pipelinepoc.dev.k8.openlane.net; export status_url'
+
     sh "./gradlew gatlingRun"
 }

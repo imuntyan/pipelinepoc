@@ -5,3 +5,4 @@ Shortcuts:
 - Run Jenkins on VM, not in docker
 - manually enter docker login on Jenkins host
 - copy kubernetes config file into Jenkins host /jenkins/config
+- no Git -> Jenkins push for simplicity
