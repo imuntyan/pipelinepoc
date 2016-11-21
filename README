@@ -2,7 +2,9 @@
 
 
 Shortcuts:
-- Run Jenkins on VM, not in docker
-- manually enter docker login on Jenkins host
+- Run Jenkins on VM, not in docker - avoiding Docker in Docker. No Jenkins slaves
+- manually enter dockerhub login on Jenkins host
 - copy kubernetes config file into Jenkins host /jenkins/config
 - no Git -> Jenkins push for simplicity
+- Gatling test URL passed through env var
+- no domain for kubernetes, need to set the DNS in /etc/hosts in Jenkins
