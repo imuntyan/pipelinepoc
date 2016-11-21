@@ -17,10 +17,12 @@ podTemplate(label: 'buildpod', containers: [
             sh 'gradlew clean build'
         }
 
+/*
         container('docker') {
             stage 'BuildRunDocker'
             sh 'docker build -t imuntyan/pipelinepoc .'
         }
+*/
 
     }
 }
