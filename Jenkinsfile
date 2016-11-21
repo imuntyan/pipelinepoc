@@ -1,8 +1,8 @@
 #!groovy
 
 podTemplate(label: 'buildpod', containers: [
-        containerTemplate(name: 'gradle', image: 'frekele/gradle:3.2-jdk8', ttyEnabled: true, command: 'cat'),
-        containerTemplate(name: 'docker', image: 'docker:1.12.3-dind', ttyEnabled: true, command: 'cat', privileged: true)
+        containerTemplate(name: 'gradle', image: 'frekele/gradle:3.2-jdk8'),
+        containerTemplate(name: 'docker', image: 'docker:1.12.3-dind', privileged: true)
 ]
 //        ,volumes: [secretVolume(secretName: 'shared-secrets', mountPath: '/etc/shared-secrets')]
 ) {
