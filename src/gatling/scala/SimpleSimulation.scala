@@ -24,5 +24,5 @@ class SimpleSimulation extends Simulation {
               
   setUp(scn.inject(atOnceUsers(10))).protocols(httpConf)
     .assertions(
-      global.successfulRequests.percent.lessThan(50))
+      global.successfulRequests.percent.greaterThan(99))
 }
