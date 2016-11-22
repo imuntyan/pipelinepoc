@@ -1,8 +1,9 @@
 #!groovy
 
 podTemplate(label: 'buildpod', containers: [
-        containerTemplate(name: 'gradle', image: 'frekele/gradle:3.2-jdk8'),
-        containerTemplate(name: 'docker', image: 'docker:1.12.3-dind', privileged: true)
+        containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:2.62-alpine', args: '${computer.jnlpmac} ${computer.name}'),
+        containerTemplate(name: 'gradle', image: 'frekele/gradle:3.2-jdk8', args: '${computer.jnlpmac} ${computer.name}'),
+        containerTemplate(name: 'docker', image: 'docker:1.12.3-dind', privileged: true, args: '${computer.jnlpmac} ${computer.name}')
 ]
 //        ,volumes: [secretVolume(secretName: 'shared-secrets', mountPath: '/etc/shared-secrets')]
 ) {
