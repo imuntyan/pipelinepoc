@@ -8,7 +8,10 @@ configurations {
 
 idea {
     module {
+        testSourceDirs += project.file('src/gatling/scala')
         scopes.PROVIDED.plus += [configurations.provided]
+        scopes.TEST.plus += [project.configurations.gatlingCompile]
+        scopes.TEST.plus += [project.configurations.gatlingRuntime]
         //testSourceDirs += file('src/integration/groovy')
         //testSourceDirs += file('src/functional/groovy')
     }
