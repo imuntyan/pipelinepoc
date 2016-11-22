@@ -1,8 +1,8 @@
 #!groovy
 
 podTemplate(label: 'buildpod', containers: [
-        containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:2.62-alpine', ttyEnabled: true, command: 'cat'),
-        containerTemplate(name: 'gradle', image: 'frekele/gradle:3.2-jdk8', ttyEnabled: true, command: 'cat'),
+        containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:2.62-alpine', ttyEnabled: false, command: 'cat'),
+        containerTemplate(name: 'gradle', image: 'frekele/gradle:3.2-jdk8', ttyEnabled: false, command: 'cat'),
         containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:alpine', command: '/usr/local/bin/start.sh', args: '${computer.jnlpmac} ${computer.name}', ttyEnabled: false)
 ]
 //        ,volumes: [secretVolume(secretName: 'shared-secrets', mountPath: '/etc/shared-secrets')]
