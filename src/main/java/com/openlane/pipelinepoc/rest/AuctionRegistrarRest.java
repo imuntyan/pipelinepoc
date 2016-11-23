@@ -1,5 +1,8 @@
 package com.openlane.pipelinepoc.rest;
 
+import com.openlane.pipelinepoc.auction.Auction;
+import com.openlane.pipelinepoc.auction.AuctionRegistrar;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,10 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
+
 @RestController
 @RequestMapping("/api/auctionList")
 public class AuctionRegistrarRest {
 
+
+        @Autowired
+        private AuctionRegistrar auctionRegistrar;
 
 
         @RequestMapping(method = RequestMethod.GET)
@@ -24,6 +32,9 @@ public class AuctionRegistrarRest {
                                 .fromCurrentRequest().path("/{id}")
                                 .buildAndExpand(bids.getId()).toUri());
                 */
-                return new ResponseEntity<String>("<http><body>OK</body></http>", httpHeaders, HttpStatus.OK);
+
+                Collection<Auction> auctions = auctionRegistrar.getAuctions();
+
+                return new ResponseEntity<Collection<Auction>>(auctions, httpHeaders, HttpStatus.OK);
         }
 }
