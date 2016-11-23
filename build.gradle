@@ -71,7 +71,7 @@ apply from: 'gradle/conf/meta.gradle'
 
 apply from: 'gradle/conf/test/unit.gradle'
 apply from: 'gradle/conf/test/load.gradle'
-
+apply from: 'gradle/conf/test/sonar.gradle'
 
 
 sourceCompatibility = 1.8
