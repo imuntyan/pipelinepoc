@@ -26,16 +26,29 @@ class RestServiceSpec extends Specification {
     Integer serverPort
 
     @Shared
-    def client = new RESTClient( "http://localhost:" + serverPort )
+    def client = new RESTClient()
 
-    def pr() {
-        println serverPort
+    def "status endpoint test using groovyx.net.http.RESTClient"() {
+
+        client.setUri("http://localhost:" + serverPort);
+
+        when: "a rest call is performed to the status page"
+        def response = client.get(path: "/status")
+
+        then: "the correct message is expected"
+        with(response) {
+            data.text == "OK"
+            status == 200
+        }
     }
 
-    def "http server test"() {
+    @Shared
+    def restTemplate = new RestTemplate()
+
+    def "status endpoint test using org.springframework.web.client.RestTemplate"() {
 
         when:
-        ResponseEntity entity = new RestTemplate().getForEntity("http://localhost:"+serverPort + "/status", String.class)
+        ResponseEntity entity = restTemplate.getForEntity("http://localhost:"+serverPort + "/status", String.class)
 
         then:
         entity.statusCode == HttpStatus.OK
