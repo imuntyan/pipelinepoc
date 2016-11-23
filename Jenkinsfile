@@ -8,6 +8,9 @@ node {
     sh "./gradlew clean build"
     //step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/TEST-*.xml'])
 
+    stage 'Functional Tests'
+    sh "./gradlew clean functional"
+
     stage 'BuildRunDocker'
     //sh 'docker kill pipelinepoc'
     //sh 'docker rm pipelinepoc'

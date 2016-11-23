@@ -1,4 +1,4 @@
-package com.openlane.pipelinepoc.rest
+package com.openlane.pipelinepoc.functional
 
 import com.openlane.pipelinepoc.Application
 import groovyx.net.http.RESTClient
@@ -16,14 +16,7 @@ import spock.lang.Stepwise
 /**
  * Created by Igor.Muntyan on 11/22/2016.
  */
-
-@ContextConfiguration(loader = SpringApplicationContextLoader.class, classes = [Application.class] )
-@WebIntegrationTest(randomPort = true)
-@Stepwise
-class RestServiceSpec extends Specification {
-
-    @Value('${local.server.port}')
-    Integer serverPort
+class RestServiceSpec extends AbstractFunctionTest {
 
     @Shared
     def client = new RESTClient()

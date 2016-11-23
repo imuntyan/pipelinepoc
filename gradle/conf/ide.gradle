@@ -12,7 +12,7 @@ idea {
         scopes.PROVIDED.plus += [configurations.provided]
         scopes.TEST.plus += [project.configurations.gatlingCompile]
         scopes.TEST.plus += [project.configurations.gatlingRuntime]
-        //testSourceDirs += file('src/integration/groovy')
-        //testSourceDirs += file('src/functional/groovy')
+        testSourceDirs += file('src/integration/groovy')
+        testSourceDirs += file('src/functional/groovy')
     }
 }
