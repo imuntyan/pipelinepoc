@@ -3,11 +3,11 @@ package com.openlane.pipelinepoc.stress
 import io.gatling.core.Predef._ // 2
 import io.gatling.http.Predef._
 
-class SimpleSimulation extends Simulation {
+import com.openlane.pipelinepoc.stress.Constants._
 
-  val url = sys.env("status_url")
+class StatusPageSimpleSimulation extends Simulation {
 
-  print( url )
+  val url = sys.env(StatusPageUrlEnvVar)
 
   val httpConf = http // 4
     .baseURL(url) // 5
@@ -20,9 +20,9 @@ class SimpleSimulation extends Simulation {
   val scn = scenario("BasicSimulation") // 7
     .exec(http("request_1")  // 8
     .get("/status")) // 9
-    .pause(5) // 10
+    .pause(1) // 10
               
-  setUp(scn.inject(atOnceUsers(10))).protocols(httpConf)
+  setUp(scn.inject(atOnceUsers(1))).protocols(httpConf)
     .assertions(
       global.successfulRequests.percent.greaterThan(99))
 }
