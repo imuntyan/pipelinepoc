@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/auctionList")
+@RequestMapping("/api/auctionList")
 public class AuctionRegistrarRest {
 
 

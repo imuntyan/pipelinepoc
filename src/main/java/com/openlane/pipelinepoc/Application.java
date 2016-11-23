@@ -1,5 +1,7 @@
 package com.openlane.pipelinepoc;
 
+import com.openlane.pipelinepoc.generated.config.Constants;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;

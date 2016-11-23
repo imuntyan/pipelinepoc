@@ -1,4 +1,4 @@
-package com.openlane.pipelinepoc;
+package com.openlane.pipelinepoc.generated.config;
 
 /**
  * Application constants.

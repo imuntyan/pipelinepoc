@@ -6,4 +6,5 @@ dependencies {
     compile(group: 'io.springfox', 	name: 'springfox-swagger2', version: springfox_version){
         exclude module: 'mapstruct'
     }
+    compile(group: 'io.springfox', 	name: 'springfox-swagger-ui', version: springfox_version)
 }
