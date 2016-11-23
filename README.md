@@ -8,6 +8,7 @@ This projects demonstrates the following features:
 - Spock unit testing framework integration
 - Gatling load testing framework integration
 - Swagger integration (copied from https://github.com/reasonthearchitect/generator-spring-rest)
+- Sonarqube integration (copied from https://github.com/reasonthearchitect/generator-spring-rest, version changed to work with sonarqube LTS 5.6.3)
 
 ### Jenkins pipelines
 
