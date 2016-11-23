@@ -18,7 +18,7 @@ import spock.lang.Stepwise
  */
 
 @ContextConfiguration(loader = SpringApplicationContextLoader.class, classes = [Application.class] )
-@WebIntegrationTest
+@WebIntegrationTest(randomPort = true)
 @Stepwise
 class RestServiceSpec extends Specification {
 
