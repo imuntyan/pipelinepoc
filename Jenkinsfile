@@ -9,7 +9,7 @@ node {
     //step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/TEST-*.xml'])
 
     stage 'Functional Tests'
-    sh "./gradlew clean functional"
+    sh "./gradlew functional"
 
     stage 'BuildRunDocker'
     //sh 'docker kill pipelinepoc'
