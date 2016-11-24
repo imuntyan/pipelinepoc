@@ -22,7 +22,7 @@ node {
 
         def app = docker.build "imuntyan/pipelinepoc"
 
-        withEnv(['STATUS_URL="http://pipelinepoc.dev.k8.openlane.net"']) {
+        withEnv(['STATUS_URL=http://pipelinepoc.dev.k8.openlane.net']) {
             stage 'DeployInDev'
 
             app.push()
