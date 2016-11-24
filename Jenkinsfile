@@ -15,17 +15,16 @@ node {
         sh "./gradlew functional"
 
         stage 'BuildRunDocker'
-        //sh 'docker kill pipelinepoc'
-        //sh 'docker rm pipelinepoc'
-        //sh 'docker build -t imuntyan/pipelinepoc .'
-        //sh 'docker run -d --name pipelinepoc -p 8180:8180 imuntyan/pipelinepoc'
+        sh 'docker build -t imuntyan/pipelinepoc .'
 
-        def app = docker.build "imuntyan/pipelinepoc"
+        //def app = docker.build "imuntyan/pipelinepoc"
 
         withEnv(['STATUS_URL=http://pipelinepoc.dev.k8.openlane.net']) {
             stage 'DeployInDev'
 
-            app.push()
+            //app.push()
+            sh 'docker push imuntyan/pipelinepoc'
+
             sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" delete -f ci/kubernetes/dev/ingress.yaml'
             sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" delete -f ci/kubernetes/service.yaml'
             sh 'ci/kubernetes/kubectl-1.4.4 --kubeconfig /jenkins/config --namespace="dev" delete -f ci/kubernetes/deployment.yaml'
