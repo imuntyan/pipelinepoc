@@ -2,7 +2,7 @@
 
 node {
 
-    withEnv(["GRADLE_OPTS=${GRADLE_OPTS} -Dorg.gradle.daemon=false"]) {
+    withEnv(['GRADLE_OPTS=${GRADLE_OPTS} -Dorg.gradle.daemon=false']) {
         sh 'echo $GRADLE_OPTS'
     }
 
