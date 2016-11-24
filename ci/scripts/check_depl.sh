@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 interval=10
 ((end_time=${SECONDS}+60))
