@@ -79,6 +79,8 @@ apply from: 'gradle/conf/test/load.gradle'
 apply from: 'gradle/conf/test/sonar.gradle'
 apply from: 'gradle/conf/test/restassured.gradle'
 
+apply from: 'gradle/conf/debug.gradle'
+
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
